@@ -14,10 +14,7 @@ public class main {
 		String CMD = Command.nextLine();
 		String OP = CMD.toLowerCase();
 		
-		if (OP.equals("help")) {
-			PrintG("\n"
-					+ "OK \n");
-		}
+		Command(OP);
 		
 		CMD = Command.nextLine();
 		OP = CMD.toLowerCase();
@@ -26,5 +23,10 @@ public class main {
 	static void PrintG(String text) {
 		System.out.println("\u001B[32;1m" + text + "\u001B[0m");
 	}
-	
+	static void Command(String text) {
+		if (text.equals("help")) {
+			PrintG("\n" 
+			+ "The commands are in progress \n");
+		}
+	}
 }
