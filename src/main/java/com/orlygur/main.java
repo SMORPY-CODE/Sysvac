@@ -1,17 +1,19 @@
 package com.orlygur;
 
 import java.util.Scanner;
+import java.io.File;
 
 public class main {
 	
 	public static void main(String[] args) {
 		Scanner Command = new Scanner(System.in);
 
-		PrintG("Hello and welcome to Sysvac. Beta \n"
+		PrintG("Hello and welcome to Sysvac. (Beta) \n"
 		+ "Please type a command \n"
-		+ "Type Help for basic commands \n");
+		+ "Type Help for basic commands \n"
+		+ "Type Exit to exit the program \n");
 		while (true) {
-			  input();
+			  Cinput();
 		}
 	}
 	
@@ -22,7 +24,11 @@ public class main {
 	static void Command(String text) {
 		if (text.equals("help")) {
 			PrintG("\n" 
-			+ "The commands are in progress \n");
+			+ "to open a file, Type \"Open .\" \n");
+		} else if (text.equals("open .")) {
+			PrintG("\n");
+			Files(input());
+			PrintG("\n");
 		} else if (text.equals("exit")) {
 			PrintG("\n" 
 					+ "Exiting. \n");
@@ -33,7 +39,7 @@ public class main {
 		}
 	} // checks which command was typed
 	
-	static void input() {
+	static void Cinput() {
 		Scanner Command = new Scanner(System.in);
 		String CMD;
 		String OP;
@@ -44,4 +50,31 @@ public class main {
 		Command(OP);
 	} // takes user input
 	
+	static void Files(String Fd) {
+    	File directory = new File(Fd);
+
+    	if (directory.isDirectory()) {
+
+    		String[] files = directory.list();
+
+    		if (files != null) {
+    			for (String file : files) {
+    				PrintG("\n" + file);
+    			}
+    		} else {
+    			PrintG("The directory is empty.");
+    		}
+    	} else {
+    		PrintG("The specified path is not a directory.");
+    	}
+	}
+	static String input() {
+        Scanner scanner = new Scanner(System.in);
+        PrintG("Directory:");
+
+        String cmd = scanner.nextLine();
+        String op = cmd.toLowerCase();
+
+        return op;
+    }
 }
