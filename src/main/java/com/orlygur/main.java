@@ -26,19 +26,24 @@ public class main {
 			PrintG("\n" 
 			+ "to open a file, Type \"File\" \n");
 		} else if (text.equals("file")) {
-			PrintG("\n");
+			PrintG("\n"
+					+ "Directory:");
 			Files(input());
 			PrintG("\n");
 		} else if (text.equals("exit")) {
 			PrintG("\n" 
 					+ "Exiting. \n");
 			System.exit(0);
+		} else if (text.equals("read")) {
+			PrintG("\n"
+					+ "Directory: \n");	
+			Read(input());
+			PrintG("\n");
 		} else {
 			PrintG("\n"
 					+ "Not a Command \n");
 		}
 	} // checks which command was typed
-	
 	static void Cinput() {
 		Scanner Command = new Scanner(System.in);
 		String CMD;
@@ -68,9 +73,11 @@ public class main {
     		PrintG("The specified path is not a directory.");
     	}
 	}
+	static void Read(String Fd) {
+		PrintG(Fd);
+	}
 	static String input() {
         Scanner scanner = new Scanner(System.in);
-        PrintG("Directory:");
 
         String cmd = scanner.nextLine();
         String op = cmd.toLowerCase();
