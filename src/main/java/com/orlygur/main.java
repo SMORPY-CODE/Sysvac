@@ -24,8 +24,8 @@ public class main {
 	static void Command(String text) {
 		if (text.equals("help")) {
 			PrintG("\n" 
-			+ "to open a file, Type \"Open .\" \n");
-		} else if (text.equals("open .")) {
+			+ "to open a file, Type \"File\" \n");
+		} else if (text.equals("file")) {
 			PrintG("\n");
 			Files(input());
 			PrintG("\n");
@@ -77,4 +77,4 @@ public class main {
 
         return op;
     }
-} // /Users/orlygurhugason/projects/Sysvac is the directiry of the file
+} // /Users/orlygurhugason/projects/Sysvac
